@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:flutter/flutter.dart';
+import 'package:flutter/material.dart';
 import '../services/api_service.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -54,12 +54,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
       setState(() {
         errorMessage = 'Error: $e';
       });
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(errorMessage!),
-          duration: const Duration(seconds: 5),
-        ),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(errorMessage!),
+            duration: const Duration(seconds: 5),
+          ),
+        );
+      }
     } finally {
       setState(() {
         isLoading = false;
@@ -129,7 +131,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       child: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: color.withOpacity(0.15),
+          color: color.withValues(alpha: 0.15),
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: color,
@@ -153,7 +155,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 child: Text(
                   content,
                   style: TextStyle(
-                    color: color.withOpacity(0.9),
+                    color: color.withValues(alpha: 0.9),
                     fontSize: 20,
                     height: 1.5,
                   ),
@@ -249,7 +251,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 width: double.infinity,
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Colors.red.withOpacity(0.2),
+                  color: Colors.red.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(color: Colors.red, width: 2),
                 ),
