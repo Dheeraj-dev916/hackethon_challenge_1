@@ -1,0 +1,27 @@
+
+SYSTEM ARCHITECTURE
+
+User Upload
+    ↓
+Content Understanding Agent
+    ↓
+Planner Agent
+    ↓
+Insight Extraction Agent
+    ↓
+Impact Analysis Agent
+    ↓
+Decision Agent
+    ↓
+Tool Execution Agent
+    ↓
+Simulation Agent
+    ↓
+Outcome Visualization
+
+Antigravity orchestrates:
+- workflow planning
+- execution routing
+- state tracking
+- reasoning traces
+- agent collaboration
